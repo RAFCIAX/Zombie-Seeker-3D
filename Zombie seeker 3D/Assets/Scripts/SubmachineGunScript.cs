@@ -15,22 +15,14 @@ public class SubmachineGunScript : MonoBehaviour
 
     public PlayerScript player;
 
-    // Start is called before the first frame update
     void Start()
     {
-        //firePoint = GetComponentInChildren<Transform>();
         player = FindObjectOfType<PlayerScript>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.Y))
-        {
-            Shoot();
-        }
-
-        if (player.canShoot)
+        if (Input.GetKey(KeyCode.Y) || player.canShoot)
         {
             Shoot();
         }

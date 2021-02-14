@@ -11,24 +11,30 @@ public class Enemy : MonoBehaviour
     public Camera cam;
     public NavMeshAgent agent;
 
+    [SerializeField] AudioSource audioSource;
+    [SerializeField] AudioClip zombieSound1;
+    [SerializeField] AudioClip zombieSound2;
+    [SerializeField] AudioClip zombieSound3;
+
+    public float seconds;
+
     public int damage = 20;
     public bool canDealDamage = true;
 
     public ParticleSystem deathEffect;
 
-    // Start is called before the first frame update
     void Start()
     {
         player = FindObjectOfType<PlayerScript>();
         cam = FindObjectOfType<Camera>();
         agent = GetComponent<NavMeshAgent>();
+
+        PlaySounds();
     }
 
-    // Update is called once per frame
     void Update()
     {
         NavigationMesh();
-
     }
 
     void NavigationMesh()
@@ -69,10 +75,45 @@ public class Enemy : MonoBehaviour
 
     }
 
+    void PlaySounds()
+    {
+        int selectedClip = Random.Range(1, 3);
+        if (selectedClip == 1)
+        {
+            //audioSource.clip = zombieSound1;
+            audioSource.PlayOneShot(zombieSound1, 0.6f);
+            audioSource.Play();
+            seconds = zombieSound1.length + 2f;
+            StartCoroutine(WaitForSound());
+        }
+        else if (selectedClip == 2)
+        {
+            //audioSource.clip = zombieSound2;
+            audioSource.PlayOneShot(zombieSound2, 0.6f);
+            audioSource.Play();
+            seconds = zombieSound2.length + 2f;
+            StartCoroutine(WaitForSound());
+        }
+        else if (selectedClip == 3)
+        {
+            //audioSource.clip = zombieSound3;
+            audioSource.PlayOneShot(zombieSound3, 0.6f);
+            audioSource.Play();
+            seconds = zombieSound3.length + 2f;
+            StartCoroutine(WaitForSound());
+        }
+    }
+
     public IEnumerator WaitForDamage()
     {
         canDealDamage = false;
         yield return new WaitForSeconds(3);
         canDealDamage = true;
+    }
+
+    public IEnumerator WaitForSound()
+    {
+        yield return new WaitForSeconds(seconds);
+        PlaySounds();
     }
 }

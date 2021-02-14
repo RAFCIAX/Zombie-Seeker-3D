@@ -57,32 +57,17 @@ public class PlayerScript : MonoBehaviour
         playerDied = false;
 
         health = maxHealth;
-        //hpBar.slider.value = health;
-        //hpBar.SetHealth(health);
 
-        usingPistol = true;
-        usingSMG = false;
-        usingShotgun = false;
-
-        pistolGO.SetActive(true);
-        smgGO.SetActive(false);
-        shotgunGO.SetActive(false);
+        PistolCollected();
     }
 
     void Update()
     {
-        //rb.velocity = new Vector3(joysick.Horizontal * speed, rb.velocity.y, joysick.Vertical * speed);
-        //FindClosestEnemy();
         playerMovement = new Vector3(joysick.Horizontal * speed, 0, joysick.Vertical * speed);
-
-
         movement = new Vector3(joysick.Horizontal, 0, joysick.Vertical);
-
         transform.position += playerMovement;
+
         FindClosestEnemy();
-
-
-
 
         if (health <= 0)
         {
@@ -91,44 +76,17 @@ public class PlayerScript : MonoBehaviour
 
         hpBar.SetHealth(health);
 
-        //if (usingPistol)
-        //{
-        //    gun.gameObject.SetActive(true);
-        //    subGun.gameObject.SetActive(false);
-        //    shotgun.gameObject.SetActive(false);
-        //}
-        //else if (usingSMG)
-        //{
-        //    gun.gameObject.SetActive(false);
-        //    subGun.gameObject.SetActive(true);
-        //    shotgun.gameObject.SetActive(false);
-        //}
-        //else if (usingShotgun)
-        //{
-        //    gun.gameObject.SetActive(false);
-        //    subGun.gameObject.SetActive(false);
-        //    shotgun.gameObject.SetActive(true);
-        //}
-
         if (Input.GetKey(KeyCode.Alpha1))
         {
-            pistolGO.SetActive(true);
-            smgGO.SetActive(false);
-            shotgunGO.SetActive(false);
+            PistolCollected();
         }
-
-        if (Input.GetKey(KeyCode.Alpha2))
+        else if (Input.GetKey(KeyCode.Alpha2))
         {
-            pistolGO.SetActive(false);
-            smgGO.SetActive(true);
-            shotgunGO.SetActive(false);
+            SMGCollected();
         }
-
-        if (Input.GetKey(KeyCode.Alpha3))
+        else if (Input.GetKey(KeyCode.Alpha3))
         {
-            pistolGO.SetActive(false);
-            smgGO.SetActive(false);
-            shotgunGO.SetActive(true);
+            ShotgunCollected();
         }
     }
 
@@ -145,7 +103,6 @@ public class PlayerScript : MonoBehaviour
             {
                 distanceToClosestEnemy = distanceToEnemy;
                 closestEnemy = currentEnemy;
-                //Debug.Log(distanceToClosestEnemy);
             }
         }
 
@@ -153,9 +110,9 @@ public class PlayerScript : MonoBehaviour
         {
             Debug.DrawLine(raySource.transform.position, closestEnemy.transform.position);
             transform.LookAt(closestEnemy.transform.position);
-        }        else
+        }
+        else
         {
-            //transform.LookAt(movement);
             transform.rotation = Quaternion.LookRotation(movement);
         }
 
@@ -185,9 +142,15 @@ public class PlayerScript : MonoBehaviour
 
     public void Die()
     {
-        //playerDied = true;
         Time.timeScale = 0;
         restertBtn.gameObject.SetActive(true);
+    }
+
+    public void PistolCollected()
+    {
+        pistolGO.SetActive(true);
+        smgGO.SetActive(false);
+        shotgunGO.SetActive(false);
     }
 
     public void SMGCollected()
@@ -203,4 +166,45 @@ public class PlayerScript : MonoBehaviour
         smgGO.SetActive(false);
         shotgunGO.SetActive(true);
     }
+
+
+
+
+
+    /*
+    ALL COMMENTS - moved for cleaning purposes
+
+        //hpBar.slider.value = health;
+        //hpBar.SetHealth(health);
+        //rb.velocity = new Vector3(joysick.Horizontal * speed, rb.velocity.y, joysick.Vertical * speed);
+        //FindClosestEnemy();
+        //Debug.Log(distanceToClosestEnemy);
+        //transform.LookAt(movement);
+        //playerDied = true;
+        usingPistol = true;
+        usingSMG = false;
+        usingShotgun = false;
+
+        //if (usingPistol)
+        //{
+        //    gun.gameObject.SetActive(true);
+        //    subGun.gameObject.SetActive(false);
+        //    shotgun.gameObject.SetActive(false);
+        //}
+        //else if (usingSMG)
+        //{
+        //    gun.gameObject.SetActive(false);
+        //    subGun.gameObject.SetActive(true);
+        //    shotgun.gameObject.SetActive(false);
+        //}
+        //else if (usingShotgun)
+        //{
+        //    gun.gameObject.SetActive(false);
+        //    subGun.gameObject.SetActive(false);
+        //    shotgun.gameObject.SetActive(true);
+        //}
+
+    */
+
+
 }

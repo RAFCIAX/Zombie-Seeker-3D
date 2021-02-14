@@ -64,8 +64,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\CrateScript.cs" />
     <Compile Include="Assets\Desert Environment\Example\AutoMoveAndRotate.cs" />
-    <Compile Include="Assets\EnemyDetector.cs" />
     <Compile Include="Assets\Joystick Pack\Examples\JoystickPlayerExample.cs" />
     <Compile Include="Assets\Joystick Pack\Examples\JoystickSetterExample.cs" />
     <Compile Include="Assets\Joystick Pack\Scripts\Base\Joystick.cs" />
@@ -73,16 +73,17 @@
     <Compile Include="Assets\Joystick Pack\Scripts\Joysticks\FixedJoystick.cs" />
     <Compile Include="Assets\Joystick Pack\Scripts\Joysticks\FloatingJoystick.cs" />
     <Compile Include="Assets\Joystick Pack\Scripts\Joysticks\VariableJoystick.cs" />
-    <Compile Include="Assets\Joystick Pack\Scripts\PlayerScript.cs" />
-    <Compile Include="Assets\NEW_PlayerScript.cs" />
     <Compile Include="Assets\Scripts\AddHpScript.cs" />
     <Compile Include="Assets\Scripts\BulletScript.cs" />
     <Compile Include="Assets\Scripts\CameraScript.cs" />
     <Compile Include="Assets\Scripts\Enemy.cs" />
+    <Compile Include="Assets\Scripts\EnemyDetector.cs" />
     <Compile Include="Assets\Scripts\FinishZoneScript.cs" />
     <Compile Include="Assets\Scripts\GunScript.cs" />
     <Compile Include="Assets\Scripts\HealthBarScript.cs" />
     <Compile Include="Assets\Scripts\MinimapScript.cs" />
+    <Compile Include="Assets\Scripts\NEW_PlayerScript.cs" />
+    <Compile Include="Assets\Scripts\PlayerScript.cs" />
     <Compile Include="Assets\Scripts\RestartBtnScript.cs" />
     <Compile Include="Assets\Scripts\RestartbuttonsScript.cs" />
     <Compile Include="Assets\Scripts\SafeZoneScript.cs" />
@@ -92,7 +93,7 @@
     <Compile Include="Assets\Scripts\SubmachineGunScript.cs" />
     <Compile Include="Assets\Scripts\X2FireRateCollectibleScript.cs" />
     <Compile Include="Assets\Scripts\arrowScript.cs" />
-    <Compile Include="Assets\testScript.cs" />
+    <Compile Include="Assets\Scripts\testScript.cs" />
     <None Include="Assets\Desert Environment\Models\Shaders\WindShader.shader" />
     <Reference Include="UnityEngine">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.10f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>

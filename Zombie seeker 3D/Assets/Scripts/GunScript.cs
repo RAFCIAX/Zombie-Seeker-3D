@@ -6,24 +6,24 @@ public class GunScript : MonoBehaviour
 {
     public Transform firePoint;
     public GameObject bulletPrefab;
-
     public PlayerScript player;
-    public EnemyDetector enemyDetector;
 
     public bool canGunShoot = true;
     private bool canShoot = true;
 
-    // Start is called before the first frame update
+    [SerializeField] GameObject muzzleFlash;
+
+    private AudioSource audioSource;
+
     void Start()
     {
         player = FindObjectOfType<PlayerScript>();
-        enemyDetector = FindObjectOfType<EnemyDetector>();
+        audioSource = GetComponent<AudioSource>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (player.canShoot && canGunShoot)
+        if (player.canShoot && canGunShoot || Input.GetKey(KeyCode.H))
         {
             Shoot();
         }
@@ -31,9 +31,12 @@ public class GunScript : MonoBehaviour
 
     public void Shoot()
     {
-            var bullet = Instantiate(bulletPrefab, firePoint.position, transform.rotation);
-            canGunShoot = false;
-            StartCoroutine(WaitToShoot());
+        var bullet = Instantiate(bulletPrefab, firePoint.position, transform.rotation);
+        var muzzle = Instantiate(muzzleFlash, firePoint.position, transform.rotation);
+        Destroy(muzzle, 1f);
+        audioSource.Play();
+        canGunShoot = false;
+        StartCoroutine(WaitToShoot());
     }
 
     IEnumerator WaitToShoot()
