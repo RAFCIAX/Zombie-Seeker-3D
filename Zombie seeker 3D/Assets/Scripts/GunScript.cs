@@ -23,7 +23,7 @@ public class GunScript : MonoBehaviour
 
     void Update()
     {
-        if (player.canShoot && canGunShoot || Input.GetKey(KeyCode.H))
+        if (player.canShoot && canGunShoot || Input.GetKey(KeyCode.H) && canGunShoot)
         {
             Shoot();
         }
