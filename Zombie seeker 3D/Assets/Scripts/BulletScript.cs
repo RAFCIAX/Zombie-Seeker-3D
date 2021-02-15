@@ -8,13 +8,17 @@ public class BulletScript : MonoBehaviour
 
     public PlayerScript player;
 
+    public GameObject destroyEfffect;
+
+    public GameObject wallHitGO;
+    public GameObject metalHitGO;
+    public GameObject woodHitGO;
+
     public Vector3 force = new Vector3(5f, 0, 0);
 
     public float forcee = 5f;
 
     public static int damage = 20;
-
-    // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -23,20 +27,46 @@ public class BulletScript : MonoBehaviour
         Destroy(gameObject, 5f);
 
         //rb.transform.Translate(Vector3.forward);
-
         //Vector3 localForward = transform.worldToLocalMatrix.MultiplyVector(transform.forward);
-
         //rb.AddForce(localForward * forcee, ForceMode.Impulse);
     }
-
-    // Update is called once per frame
     void Update()
     {
         transform.Translate(Vector3.forward);
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnCollisionEnter(Collision target)
     {
-        Destroy(gameObject);
+        if (target.gameObject.tag == "Wall")
+        {
+            var wallHit = Instantiate(wallHitGO, transform.position, Quaternion.identity);
+            Destroy(wallHit, 1f);
+            Debug.Log("Wall - sound played");
+            var destroy = Instantiate(destroyEfffect, transform.position, Quaternion.identity);
+            Destroy(destroy, 1f);
+            Destroy(gameObject);
+        }
+        else if (target.gameObject.tag == "Metal")
+        {
+            var mmetalHit = Instantiate(metalHitGO, transform.position, Quaternion.identity);
+            Destroy(mmetalHit, 1f);
+            Debug.Log("Metal - sound played");
+            var destroy = Instantiate(destroyEfffect, transform.position, Quaternion.identity);
+            Destroy(destroy, 1f);
+            Destroy(gameObject);
+        }
+        else if (target.gameObject.tag == "Wood")
+        {
+            var woodHit = Instantiate(woodHitGO, transform.position, Quaternion.identity);
+            Destroy(woodHit, 1f);
+            Debug.Log("Wood - sound played");
+            Destroy(gameObject);
+        }
+        else
+        {
+            var destroy = Instantiate(destroyEfffect, transform.position, Quaternion.identity);
+            Destroy(destroy, 1f);
+            Destroy(gameObject);
+        }
     }
 }

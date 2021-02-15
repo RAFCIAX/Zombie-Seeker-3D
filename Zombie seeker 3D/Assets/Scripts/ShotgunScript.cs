@@ -55,11 +55,11 @@ public class ShotgunScript : MonoBehaviour
             var bullet2 = Instantiate(bulletPrefab, firePoint2.position, transform.rotation);
             var bullet3 = Instantiate(bulletPrefab, firePoint3.position, transform.rotation);
             var muzzle = Instantiate(muzzleFlash, firePoint1.position, transform.rotation);
+            Destroy(muzzle, 1f);
             a_Source.PlayOneShot(shotgunShot);
             currentClipSize--;
             if (currentClipSize <= 0)
             {
-                //StartReloading();
                 CheckIfReload();
             }
             Debug.Log("Bullet shot");
@@ -71,10 +71,10 @@ public class ShotgunScript : MonoBehaviour
         if (currentClipSize < clipSize)
         {
             LoadBullet();
+            reloading = true;
         }
         else if (currentClipSize == clipSize)
         {
-            CockWeapon();
             reloading = false;
         }
     }
@@ -84,6 +84,10 @@ public class ShotgunScript : MonoBehaviour
         a_Source.PlayOneShot(bulletLoading);
         currentClipSize++;
         StartCoroutine(LoadingBullet());
+        if (currentClipSize == clipSize)
+        {
+            CockWeapon();
+        }
     }
 
     void CockWeapon()

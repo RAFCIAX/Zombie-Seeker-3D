@@ -37,6 +37,7 @@ public class PlayerScript : MonoBehaviour
     public GameObject smgGO;
     public GameObject shotgunGO;
 
+    public bool isGrounded;
 
     private void Awake()
     {
@@ -88,6 +89,11 @@ public class PlayerScript : MonoBehaviour
         {
             ShotgunCollected();
         }
+
+        if (!isGrounded)
+        {
+            EnableGravity();
+        }
     }
 
     public void FindClosestEnemy()
@@ -132,6 +138,11 @@ public class PlayerScript : MonoBehaviour
         {
 
         }
+    }
+
+    void EnableGravity()
+    {
+        transform.position -= new Vector3(0f, 0.1f, 0f);
     }
 
     public void TakeDamage(int damage)

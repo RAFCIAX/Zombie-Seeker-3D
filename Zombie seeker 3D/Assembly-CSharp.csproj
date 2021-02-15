@@ -64,8 +64,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\CrateScript.cs" />
     <Compile Include="Assets\Desert Environment\Example\AutoMoveAndRotate.cs" />
+    <Compile Include="Assets\GroundCheck.cs" />
     <Compile Include="Assets\Joystick Pack\Examples\JoystickPlayerExample.cs" />
     <Compile Include="Assets\Joystick Pack\Examples\JoystickSetterExample.cs" />
     <Compile Include="Assets\Joystick Pack\Scripts\Base\Joystick.cs" />
@@ -76,9 +76,11 @@
     <Compile Include="Assets\Scripts\AddHpScript.cs" />
     <Compile Include="Assets\Scripts\BulletScript.cs" />
     <Compile Include="Assets\Scripts\CameraScript.cs" />
+    <Compile Include="Assets\Scripts\CrateScript.cs" />
     <Compile Include="Assets\Scripts\Enemy.cs" />
     <Compile Include="Assets\Scripts\EnemyDetector.cs" />
     <Compile Include="Assets\Scripts\FinishZoneScript.cs" />
+    <Compile Include="Assets\Scripts\FootstepsAudio.cs" />
     <Compile Include="Assets\Scripts\GunScript.cs" />
     <Compile Include="Assets\Scripts\HealthBarScript.cs" />
     <Compile Include="Assets\Scripts\MinimapScript.cs" />
