@@ -9,7 +9,6 @@ public class RestartbuttonsScript : MonoBehaviour
     public PlayerScript player;
     public GameObject youDiedPanel;
 
-    // Start is called before the first frame update
     void Start()
     {
         current = SceneManager.GetActiveScene().buildIndex;
@@ -18,7 +17,6 @@ public class RestartbuttonsScript : MonoBehaviour
 
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (player.playerDied == true)
