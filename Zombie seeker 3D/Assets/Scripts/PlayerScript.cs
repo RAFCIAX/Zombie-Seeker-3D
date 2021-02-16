@@ -77,6 +77,11 @@ public class PlayerScript : MonoBehaviour
 
         hpBar.SetHealth(health);
 
+        if (Input.GetKeyDown(KeyCode.Y))
+        {
+            DecreaseHP();
+        }
+
         if (Input.GetKey(KeyCode.Alpha1))
         {
             PistolCollected();
@@ -149,6 +154,11 @@ public class PlayerScript : MonoBehaviour
     {
         health -= damage;
         hpBar.SetHealth(health);
+    }
+
+    void DecreaseHP()
+    {
+        health -= 10;
     }
 
     public void Die()

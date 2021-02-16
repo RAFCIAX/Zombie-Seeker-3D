@@ -5,28 +5,34 @@ using UnityEngine;
 public class SafeZoneScript : MonoBehaviour
 {
     public GameObject forceField;
+    public AddHpScript AHScript;
 
-    // Start is called before the first frame update
+    [SerializeField] AudioSource a_source;
+    [SerializeField] AudioClip ForceFieldEnableSound;
+    [SerializeField] AudioClip ForceFieldDisableSound;
+
     void Start()
     {
         forceField.SetActive(false);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        AHScript = GetComponent<AddHpScript>();
     }
 
     public void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.tag == "Player")
+        {
             forceField.SetActive(true);
+            a_source.PlayOneShot(ForceFieldEnableSound);
+        }
     }
 
     public void OnTriggerExit(Collider other)
     {
         if(other.gameObject.tag == "Player")
+        {
             forceField.SetActive(false);
+            a_source.PlayOneShot(ForceFieldDisableSound);
+            AHScript.fullHpPlayed = false;
+        }
     }
 }
