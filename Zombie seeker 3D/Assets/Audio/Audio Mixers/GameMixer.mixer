@@ -166,7 +166,7 @@ AudioMixerSnapshotController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Basic2
+  m_Name: Basic2 X
   m_AudioMixer: {fileID: 24100000}
   m_SnapshotID: 3dcb736b172b5d145adfdee7b856d7e7
   m_FloatValues:
@@ -209,7 +209,7 @@ AudioMixerController:
   - {fileID: 7752319381957749155}
   - {fileID: 1255784672338209035}
   - {fileID: -997026307549362728}
-  m_StartSnapshot: {fileID: 7752319381957749155}
+  m_StartSnapshot: {fileID: 24500006}
   m_SuspendThreshold: -80
   m_EnableSuspend: 1
   m_UpdateMode: 0
@@ -229,7 +229,7 @@ AudioMixerController:
     - 5128fac9b0eba124c9dde36b6b683cac
     name: View
   m_CurrentViewIndex: 0
-  m_TargetSnapshot: {fileID: 7752319381957749155}
+  m_TargetSnapshot: {fileID: -997026307549362728}
 --- !u!243 &24300002
 AudioMixerGroupController:
   m_ObjectHideFlags: 0
@@ -278,9 +278,15 @@ AudioMixerSnapshotController:
   m_AudioMixer: {fileID: 24100000}
   m_SnapshotID: ef2b47899738ec549a9b0ee028f1f0f4
   m_FloatValues:
-    50437dd558ddf634983da22ab04eabaa: -80
-    00be7abbaf02df54f995aeb24047ba5d: -18.592384
-    8e4f05eda68b35940bcc928a74bf6087: -80
+    92d07f2078518e54bba2c8fec55005a5: -0.27209988
+    8a8ea2704776c9b4d85d8f72014bd925: -21.302507
+    50437dd558ddf634983da22ab04eabaa: -38.141514
+    b3f427b67d1a2154997bd487087b4311: -21.302507
+    8c6898b6bbe2e294a8ef958071af434b: -6.5566154
+    a5f436e9e7687954a8b0018af98a7944: -27.943817
+    37df02dafacb10840b58b3b73136faa3: -21.302507
+    00be7abbaf02df54f995aeb24047ba5d: -21.302507
+    8e4f05eda68b35940bcc928a74bf6087: -48.38312
   m_TransitionOverrides: {}
 --- !u!245 &1255784672338209035
 AudioMixerSnapshotController:
@@ -288,7 +294,7 @@ AudioMixerSnapshotController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Prot
+  m_Name: Prot X
   m_AudioMixer: {fileID: 24100000}
   m_SnapshotID: 9b400b75391a2a142a5a730445dd4e14
   m_FloatValues:
@@ -365,7 +371,7 @@ AudioMixerSnapshotController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Basic
+  m_Name: Basic X
   m_AudioMixer: {fileID: 24100000}
   m_SnapshotID: 5d368dab0d4bc2748b619b71799e60e0
   m_FloatValues:

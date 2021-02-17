@@ -80,25 +80,19 @@ public class Enemy : MonoBehaviour
         int selectedClip = Random.Range(1, 3);
         if (selectedClip == 1)
         {
-            //audioSource.clip = zombieSound1;
             audioSource.PlayOneShot(zombieSound1, 0.6f);
-            audioSource.Play();
             seconds = zombieSound1.length + 2f;
             StartCoroutine(WaitForSound());
         }
         else if (selectedClip == 2)
         {
-            //audioSource.clip = zombieSound2;
             audioSource.PlayOneShot(zombieSound2, 0.6f);
-            audioSource.Play();
             seconds = zombieSound2.length + 2f;
             StartCoroutine(WaitForSound());
         }
         else if (selectedClip == 3)
         {
-            //audioSource.clip = zombieSound3;
             audioSource.PlayOneShot(zombieSound3, 0.6f);
-            audioSource.Play();
             seconds = zombieSound3.length + 2f;
             StartCoroutine(WaitForSound());
         }
