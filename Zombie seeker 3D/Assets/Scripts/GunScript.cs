@@ -15,6 +15,11 @@ public class GunScript : MonoBehaviour
 
     private AudioSource audioSource;
 
+    private void OnEnable()
+    {
+        canGunShoot = true;
+    }
+
     void Start()
     {
         player = FindObjectOfType<PlayerScript>();
