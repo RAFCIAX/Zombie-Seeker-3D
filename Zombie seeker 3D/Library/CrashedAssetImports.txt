@@ -1,0 +1,2 @@
+Assets/Desert Environment/Models/Props/AmmoBox/Textures/AmmoBox_Normal.png
+Assets/Desert Environment/Models/Props/PressureTank/Textures/PressureTank_Metallic.png
